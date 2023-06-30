@@ -19,6 +19,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const botName = 'ChatCord Bot';
 
+app.get('/', (req, res) => {
+    res.setHeader('Content-Type', 'application/javascript');
+    res.sendFile('index.js');
+  });
+
   // Run when client connects
   io.on("connection", (socket) => {
     console.log(io.of("/").adapter);
